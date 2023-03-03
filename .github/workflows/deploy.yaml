@@ -41,7 +41,7 @@ jobs:
     - run: npm run test   
 
   Security:
-    name: trivy scan
+    name: 🎯 Security Trivy Scan
     needs: [Test]
     runs-on: ubuntu-latest
     steps:
@@ -64,12 +64,40 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: 'trivy-results.sarif'
+  Semgrep:
+    name: semgrep scan
+    runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
+    needs: [Test]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Run semgrep security scanner
+        continue-on-error: true
+        run: |
+          cat << 'EOF' | bash
+              semgrep ci --config=auto --sarif --output=semgrep.sarif --max-target-bytes=2MB
+              EXIT_CODE=$?
+              if [ "$EXIT_CODE" = "0" ] || [ "$EXIT_CODE" = "1" ]
+              then
+                exit 0
+              else
+                exit $EXIT_CODE
+              fi
+          EOF
+      - name: list
+        run: ls -lrt
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'semgrep.sarif'   
 
   deploy:
     name: Deploy to ECS 🚀
     runs-on: ubuntu-latest
     environment: develop
-    needs: [Security]
+    needs: [Security,Semgrep]
 
     steps:
       - name: Checkout
