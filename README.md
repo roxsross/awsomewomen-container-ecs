@@ -18,27 +18,13 @@ copilot init --app web \
 ### Despliegue importando recursos ya creado por ejemplo VPC
 
 ```
-#!/bin/bash
-NAME_APP=awsomeweb
-ENV=develop
+$ ./copilot.sh                                  INT 
 
-#copilot app init crea una nva aplicación dentro del dir que contendrá su(s) servicio(s)
+```
 
-copilot app init $NAME_APP
+Eliminar aplicacion y recursos
 
-#copilot env init crea un nuevo entorno donde vivirán sus servicios.
+```
+$ ./destroy-copilot.sh
 
-copilot env init $NAME_APP --name $NAME_APP
-
-#copilot env deploy toma las config en el manifiesto de su entorno e implementa
-
-copilot env deploy --app $NAME_APP --name develop
-
-#copilot svc init crea un nuevo servicio para ejecutar su código por usted.
-
-copilot svc init -n $NAME_APP-service -t "Load Balanced Web Service" -d Dockerfile --port 80
-
-#copilot svc deploy toma su código y configuración locales y los implementa.
-
-copilot svc deploy --app $NAME_APP --name $NAME_APP-service --env develop
 ```
