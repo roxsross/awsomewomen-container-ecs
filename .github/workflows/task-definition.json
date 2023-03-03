@@ -2,8 +2,8 @@
     "taskDefinitionArn": "arn:aws:ecs:us-east-1:459137896070:task-definition/awsome-women-task:2",
     "containerDefinitions": [
         {
-            "name": "awswomen",
-            "image": "459137896070.dkr.ecr.us-east-1.amazonaws.com/awsomedemo:1.0.0",
+            "name": "awsome",
+            "image": "459137896070.dkr.ecr.us-east-1.amazonaws.com/awsome-women:1.0.0",
             "cpu": 0,
             "portMappings": [
                 {

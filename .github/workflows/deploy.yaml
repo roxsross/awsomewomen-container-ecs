@@ -7,11 +7,11 @@ on:
 
 env:
   AWS_REGION: us-east-1                 
-  ECR_REPOSITORY: awsomedemo          
+  ECR_REPOSITORY: awsome-women          
   ECS_SERVICE: awsome-women-service                
-  ECS_CLUSTER: awsome-women-community-summit-2023               
+  ECS_CLUSTER: awsome-women-cluster              
   ECS_TASK_DEFINITION: ./.github/workflows/task-definition.json 
-  CONTAINER_NAME: awswomen           
+  CONTAINER_NAME: awsome          
 
 permissions:
   actions: read
