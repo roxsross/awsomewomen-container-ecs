@@ -12,7 +12,7 @@ Los contenedores son parte fundamental en el desarrollo de aplicaciones modernas
 
 
 ### Desplegando contenedores usando AWS ECS (AWS Copilot)
-[aws copilot branch in github/roxsross](/github/roxsross/awsomewomen-container-ecs/tree/awscopilot)
+[aws copilot branch in github/roxsross](../../tree/awscopilot)
 
 
 ### Bonus Track: Despliegue de tus aplicaciones usando Github Actions + AWS ECS
