@@ -9,6 +9,7 @@ Los contenedores son parte fundamental en el desarrollo de aplicaciones modernas
 ## Workshop
 
 ### Desplegando contenedores usando AWS ECS (Manual)
+[Manual branch in github/roxsross](../../tree/master)
 
 
 ### Desplegando contenedores usando AWS ECS (AWS Copilot)
